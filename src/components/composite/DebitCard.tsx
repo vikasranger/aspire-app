@@ -4,6 +4,8 @@ import {getCardColor} from "../../base/theme/Theme.ts";
 import {px} from "../../base/theme/Theme.ts";
 import {Theme} from "../../base/theme/Theme.ts";
 import {TypeColor} from "../../base/types/Types.ts";
+import {minWidth} from "../../base/utils/constants.ts";
+import {minHeight} from "../../base/utils/constants.ts";
 import {asipireIconHeight} from "../../base/utils/constants.ts";
 import {asipireIconWidth} from "../../base/utils/constants.ts";
 import {getDisplayCardNumber} from "../../base/utils/Utils.ts";
@@ -36,8 +38,6 @@ export default function DebitCard(props: {
   } = props;
 
   const cardPadding = "28px";
-  const minWidth = "300px";
-  const minHeight = "180px";
 
   const gapStd = Theme.gap.std;
   return (

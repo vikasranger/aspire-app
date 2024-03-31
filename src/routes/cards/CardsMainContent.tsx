@@ -7,6 +7,7 @@ import {useAppDispatch} from "../../base/hooks/Hooks.ts";
 import {useAppSelector} from "../../base/hooks/Hooks.ts";
 import {Theme} from "../../base/theme/Theme.ts";
 import {px} from "../../base/theme/Theme.ts";
+import {minWidth} from "../../base/utils/constants.ts";
 import {getListItems} from "../../base/utils/DummyData.ts";
 import CardCarousel from "../../components/composite/CardCarousel.tsx";
 import DebitCard from "../../components/composite/DebitCard.tsx";
@@ -103,7 +104,6 @@ function DebitCardContent()
         freeze: !selectedCard.cardFreeze
       }));
     }
-    console.log(id);
   };
 
   const handleSelectCard = (index: number) =>
@@ -142,7 +142,7 @@ function DebitCardContent()
         padding={gapXstd}
         direction={"row"}
       >
-        <LayoutFlexColumn width={"45%"} justifyContent={"flex-start"}>
+        <LayoutFlexColumn width={"45%"} justifyContent={"flex-start"} minWidth={minWidth}>
           <LayoutFlexRow justifyContent={"flex-end"} width={"100%"}>
             <RawButton
               label={"Show card number"}
@@ -160,6 +160,7 @@ function DebitCardContent()
             width={"100%"}
           >
             <DebitCard
+              key={selectedCard.cardNumber}
               name={selectedCard.nameOnCard}
               cardNumber={selectedCard.cardNumber}
               cardNumberVisible={selectedCard.cardNumberVisible}
@@ -175,7 +176,7 @@ function DebitCardContent()
             onClick={handleClick}
           />
         </LayoutFlexColumn>
-        <LayoutFlexColumn width={"55%"} justifyContent={"flex-start"} padding={`${gapXstd} 0 0 0`}>
+        <LayoutFlexColumn width={"55%"} justifyContent={"flex-start"} minWidth={minWidth} padding={`${gapXstd} 0 0 0`}>
           <HeaderAccordion
             icon={"Group"}
             label={"Card details"}
@@ -205,6 +206,7 @@ function DebitCardContent()
               {
                 return (
                   <ListItemPS
+                    key={item.primary.text}
                     primary={item.primary}
                     secondary={item.secondary}
                     avatar={item.avatar}

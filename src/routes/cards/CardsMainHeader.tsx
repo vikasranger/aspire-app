@@ -41,7 +41,6 @@ export default function CardsMainHeader()
 
   const onSubmit = (values: FieldValues) =>
   {
-    console.log(values);
     const card = getNewCardDetails(values["name"], values["purpose"], values["limit"]);
     card.cardColor = cardColor;
     card.availableBalance = card.weeklySpendingLimit;
@@ -55,7 +54,6 @@ export default function CardsMainHeader()
   }, []);
 
   const gapStd = px(Theme.gap.std);
-  console.log("cbRef", cbRef);
 
   return (
     <LayoutFlexColumn width={"100%"} alignItems={"flex-start"}>

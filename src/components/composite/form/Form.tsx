@@ -77,8 +77,6 @@ export default function Form(props: {
     shouldFocusError: false
   });
 
-  console.log(errors);
-
   if(cbRef)
   {
     cbRef.remoteSubmit = refSubmit;

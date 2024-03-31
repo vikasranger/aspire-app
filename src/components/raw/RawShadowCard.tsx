@@ -23,6 +23,7 @@ export function RawShadowCard(props: {
       sx={{
         width: width,
         height: height,
+        maxHeight: "650px",
         bgcolor: getColor(bgcolor ?? "white"),
         borderRadius: px(Theme.gap.half),
         boxShadow: `0 0 10px 0 ${getColor("shadow")}`

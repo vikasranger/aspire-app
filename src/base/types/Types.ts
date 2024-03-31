@@ -65,6 +65,19 @@ export type TypeColor =
   | "orange"
   | "red";
 
+export interface ISize
+{
+  width: number;
+  height: number;
+}
+
+export interface IPageCtx
+{
+  isMobile(): boolean;
+
+  isDesktop(): boolean;
+}
+
 export function getSize(size: TypeIconSize)
 {
   switch(size)

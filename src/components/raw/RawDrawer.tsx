@@ -39,11 +39,10 @@ export default function RawDrawer(props: {
     <Drawer
       anchor={side}
       open={open}
-      onClose={(event, reason) =>
+      onClose={(_event, reason) =>
       {
         if(reason === "backdropClick")
         {
-          console.log("backdropClicked. Not closing dialog.", event);
           return;
         }
         onClose();
