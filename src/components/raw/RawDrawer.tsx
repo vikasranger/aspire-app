@@ -10,7 +10,9 @@ import LayoutFlexRow from "./LayoutFlexRow.tsx";
 import RawButton from "./RawButton.tsx";
 
 export type TypeSide = "top" | "left" | "bottom" | "right";
+
 const gapStd = px(Theme.gap.std);
+
 const useStyles = makeStyles({
   drawerPaper: {
     borderRadius: `${gapStd} 0 0 ${gapStd}`,
@@ -32,9 +34,9 @@ export default function RawDrawer(props: {
     bgcolor,
     onClose
   } = props;
+
   const classes = useStyles();
 
-  const gapStd = px(Theme.gap.std);
   return (
     <Drawer
       anchor={side}

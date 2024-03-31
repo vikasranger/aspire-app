@@ -9,6 +9,7 @@ import AspireDrawer from "../../components/composite/aside/AspireDrawer.tsx";
 import LayoutFlexColumn from "../../components/raw/LayoutFlexColumn.tsx";
 import LayoutFlexRow from "../../components/raw/LayoutFlexRow.tsx";
 import RawFadeLoader from "../../components/raw/RawFadeLoader.tsx";
+import {usePageCtx} from "../../ctx/CtxPage.tsx";
 import {addCardList} from "../../store/slices/SliceCard.ts";
 import {CardsMainContent} from "./CardsMainContent.tsx";
 import CardsMainHeader from "./CardsMainHeader.tsx";
@@ -19,6 +20,11 @@ export default function Cards()
   const [loading, setLoading] = useState<boolean>(false);
   const dispatch = useAppDispatch();
 
+  const pageCtx = usePageCtx();
+  const isMobile = pageCtx.isMobile();
+  const isDesktop = pageCtx.isDesktop();
+  console.log("isMobile", isMobile);
+  console.log("isDesktop", isDesktop);
   const fetchCards = async() =>
   {
     try

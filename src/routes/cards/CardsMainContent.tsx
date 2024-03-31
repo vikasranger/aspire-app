@@ -22,6 +22,7 @@ import RawButton from "../../components/raw/RawButton.tsx";
 import RawGap from "../../components/raw/RawGap.tsx";
 import {IPropsRawIcon} from "../../components/raw/RawIcon.tsx";
 import {RawShadowCard} from "../../components/raw/RawShadowCard.tsx";
+import {usePageCtx} from "../../ctx/CtxPage.tsx";
 import {setCardFreeze} from "../../store/slices/SliceCard.ts";
 import {setCardNumberVisible} from "../../store/slices/SliceCard.ts";
 import {selectCard} from "../../store/slices/SliceCard.ts";
@@ -52,6 +53,8 @@ export function CardsMainContent()
 
 function DebitCardContent()
 {
+  const pageCtx = usePageCtx();
+  const isMobile = pageCtx.isMobile();
   const selectedCard = useAppSelector((state) =>
   {
     return state.cards.cardList.find((card) => card.cardNumber === state.cards.selectedCard);
@@ -140,7 +143,7 @@ function DebitCardContent()
       <Stack
         spacing={gapXstd}
         padding={gapXstd}
-        direction={"row"}
+        direction={isMobile ? "column" : "row"}
       >
         <LayoutFlexColumn width={"45%"} justifyContent={"flex-start"} minWidth={minWidth}>
           <LayoutFlexRow justifyContent={"flex-end"} width={"100%"}>
