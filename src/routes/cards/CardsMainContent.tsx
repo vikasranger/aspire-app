@@ -146,7 +146,7 @@ function DebitCardContent()
           <LayoutFlexRow justifyContent={"flex-end"} width={"100%"}>
             <RawButton
               label={"Show card number"}
-              color={"success"}
+              color={selectedCard.cardColor}
               variant={"text"}
               onClick={() => handleShowCardNumber()}
               icon={selectedCard?.cardNumberVisible ? <VisibilityOffRounded /> : <VisibilityRounded />}

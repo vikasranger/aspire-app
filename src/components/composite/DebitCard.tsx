@@ -3,7 +3,7 @@ import VisaLogo from "../../assets/Visa.svg";
 import {getCardColor} from "../../base/theme/Theme.ts";
 import {px} from "../../base/theme/Theme.ts";
 import {Theme} from "../../base/theme/Theme.ts";
-import {TypeCardColor} from "../../base/types/Types.ts";
+import {TypeColor} from "../../base/types/Types.ts";
 import {asipireIconHeight} from "../../base/utils/constants.ts";
 import {asipireIconWidth} from "../../base/utils/constants.ts";
 import {getDisplayCardNumber} from "../../base/utils/Utils.ts";
@@ -21,7 +21,7 @@ export default function DebitCard(props: {
   cardNumberVisible: boolean,
   cardValidThru: string,
   cardCVV: number,
-  bgcolor?: TypeCardColor,
+  bgcolor?: TypeColor,
   freeze?: boolean
 })
 {

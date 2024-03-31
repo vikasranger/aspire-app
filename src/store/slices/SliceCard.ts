@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {PayloadAction} from "@reduxjs/toolkit";
-import {TypeCardColor} from "../../base/types/Types.ts";
+import {TypeColor} from "../../base/types/Types.ts";
 
 interface ICardSliceState
 {
@@ -16,7 +16,7 @@ export interface ICard
   cardCVV: number,
   nameOnCard: string,
   purpose: string,
-  cardColor: TypeCardColor,
+  cardColor: TypeColor,
   availableBalance: number,
   currencyUnits: string,
   weeklySpendingLimit: number,

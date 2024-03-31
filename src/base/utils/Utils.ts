@@ -1,5 +1,5 @@
 import {ICard} from "../../store/slices/SliceCard.ts";
-import {TypeCardColor} from "../types/Types.ts";
+import {TypeColor} from "../types/Types.ts";
 
 export function getNewCardDetails(name: string, purpose: string, limit: number): ICard
 {
@@ -19,9 +19,9 @@ export function getNewCardDetails(name: string, purpose: string, limit: number):
   };
 }
 
-function getRandomCardColor(): TypeCardColor
+function getRandomCardColor(): TypeColor
 {
-  const colors: TypeCardColor[] = ["black", "blue", "green", "orange", "red"];
+  const colors: TypeColor[] = ["black", "blue", "green", "orange", "red"];
   return colors[Math.floor(Math.random() * colors.length)];
 
 }

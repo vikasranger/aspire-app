@@ -2,16 +2,16 @@ import {Box} from "@mui/material";
 import {getColor} from "../../base/theme/Theme.ts";
 import {Theme} from "../../base/theme/Theme.ts";
 import {px} from "../../base/theme/Theme.ts";
-import {TypeCardColor} from "../../base/types/Types.ts";
+import {TypeColor} from "../../base/types/Types.ts";
 import LayoutFlexRow from "../raw/LayoutFlexRow.tsx";
 import RawLabel from "../raw/RawLabel.tsx";
 
 export default function ColorBox(props: {
-  selectedColor: TypeCardColor,
-  onColorSelect: (color: TypeCardColor) => void
+  selectedColor: TypeColor,
+  onColorSelect: (color: TypeColor) => void
 })
 {
-  const colors: TypeCardColor[] = ["red", "green", "blue", "black", "orange"];
+  const colors: TypeColor[] = ["red", "green", "blue", "black", "orange"];
   return (
     <Box
       padding={px(Theme.gap.std)}
@@ -22,7 +22,7 @@ export default function ColorBox(props: {
       <RawLabel value={"Pick a card color"} />
       <LayoutFlexRow>
         {
-          colors.map((color: TypeCardColor) =>
+          colors.map((color: TypeColor) =>
           {
             return (
               <Box

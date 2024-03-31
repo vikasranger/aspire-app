@@ -8,7 +8,7 @@ import {useAppSelector} from "../../base/hooks/Hooks.ts";
 import {useAppDispatch} from "../../base/hooks/Hooks.ts";
 import {Theme} from "../../base/theme/Theme.ts";
 import {px} from "../../base/theme/Theme.ts";
-import {TypeCardColor} from "../../base/types/Types.ts";
+import {TypeColor} from "../../base/types/Types.ts";
 import {ADD_CARD_DESCRIPTION} from "../../base/utils/constants.ts";
 import {ADD_CARD_TITLE_MSG} from "../../base/utils/constants.ts";
 import {getNewCardDetails} from "../../base/utils/Utils.ts";
@@ -32,7 +32,7 @@ export default function CardsMainHeader()
   const [open, setOpen] = useState(false);
   const cbRef = useMemo(() => ({} as IFormRef), []);
   const [submitEnable, setSubmitEnable] = useState(false);
-  const [cardColor, setCardColor] = useState<TypeCardColor>("green");
+  const [cardColor, setCardColor] = useState<TypeColor>("green");
   const selectedCard = useAppSelector((state) =>
   {
     return state.cards.cardList.find((card) => card.cardNumber === state.cards.selectedCard);
@@ -64,7 +64,7 @@ export default function CardsMainHeader()
         <LayoutFlexRow>
           <RawChip
             label="$$"
-            bgcolor="success"
+            bgcolor={selectedCard?.cardColor ?? "success"}
             color={"white"}
           />
           <RawLabel

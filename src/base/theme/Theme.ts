@@ -1,4 +1,3 @@
-import {TypeCardColor} from "../types/Types.ts";
 import {TypeColor} from "../types/Types.ts";
 
 export const Theme = {
@@ -90,23 +89,16 @@ const typeColorMap: Record<TypeColor, string> = {
   bg1: "#009dff1a",
   bg2: "#00d6b51a",
   bg3: "#f251951a",
-  shadow: "#00000014"
+  shadow: "#00000014",
+  black: "#000000",
+  blue: "#2b3784",
+  green: "#01d167",
+  orange: "#ff4d04",
+  red: "#d32f2f"
 };
 
-export function getCardColor(color?: TypeCardColor): string
+export function getCardColor(color?: TypeColor): string
 {
   if(!color) return "#01d167";
-  switch(color)
-  {
-    case "black":
-      return "#000000";
-    case "blue":
-      return "#2b3784";
-    case "green":
-      return "#01d167";
-    case "orange":
-      return "#ff4d04";
-    case "red":
-      return "#d32f2f";
-  }
+  return getColor(color);
 }

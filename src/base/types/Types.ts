@@ -58,14 +58,12 @@ export type TypeColor =
   | "white"
   | "bg1"
   | "bg2"
-  | "bg3";
-
-export type TypeCardColor =
+  | "bg3"
   | "black"
   | "blue"
   | "green"
   | "orange"
-  | "red"
+  | "red";
 
 export function getSize(size: TypeIconSize)
 {
