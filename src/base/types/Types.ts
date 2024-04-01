@@ -76,6 +76,8 @@ export interface IPageCtx
   isMobile(): boolean;
 
   isDesktop(): boolean;
+
+  isSmallDesktop(): boolean;
 }
 
 export function getSize(size: TypeIconSize)

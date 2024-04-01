@@ -18,10 +18,12 @@ export default function PageCtxProvider(props: {
   const pageCtx = {} as IPageCtx;
   const winSize = useWinSize();
   const appMinTabletWidth = 680;
-  const appMinDesktopWidth = 1320;
+  const appMinDesktopWidth = 1100;
+  const appMinDesktopHeight = 800;
 
   pageCtx.isMobile = () => winSize.width < appMinTabletWidth;
   pageCtx.isDesktop = () => winSize.width >= appMinDesktopWidth;
+  pageCtx.isSmallDesktop = () => winSize.width < appMinDesktopWidth || winSize.height < appMinDesktopHeight;
 
   return (
     <ctxPage.Provider value={pageCtx}>
