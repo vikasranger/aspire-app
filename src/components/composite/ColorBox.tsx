@@ -17,9 +17,13 @@ export default function ColorBox(props: {
       padding={px(Theme.gap.std)}
       borderRadius={px(Theme.gap.half)}
       boxShadow={`0 0 10px 0 ${getColor("shadow")}`}
+      width={"100%"}
+      sx={{
+        boxSizing: "border-box"
+      }}
     >
       <RawLabel value={"Pick a card color"} />
-      <LayoutFlexRow>
+      <LayoutFlexRow width={"100%"}>
         {
           colors.map((color: TypeColor) =>
           {
