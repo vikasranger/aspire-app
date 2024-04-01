@@ -174,6 +174,7 @@ function DebitCardContent()
               freeze={selectedCard.cardFreeze}
             />
           </CardCarousel>
+          <RawGap size={"small"} />
           <IconButtonList
             iconList={iconList}
             bgcolor={Theme.color.cardBg}
