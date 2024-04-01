@@ -69,7 +69,6 @@ export default function Form(props: {
   }, [getValues]);
 
   const gapStd = px(Theme.gap.std);
-  const gapXStd = px(Theme.gap.xStd);
   const methods = useForm({
     mode: "all",
     //resolver: yupResolver(getSchema(defnForm)),
@@ -135,7 +134,7 @@ export default function Form(props: {
             helperText={errors.purpose?.message}
             {...register("purpose", {required: "Purpose is required"})}
             sx={{
-              marginTop: gapXStd
+              marginTop: gapStd
             }}
           />
           <TextField
@@ -149,7 +148,7 @@ export default function Form(props: {
             helperText={errors.limit?.message}
             {...register("limit", {required: "Spend limit is required"})}
             sx={{
-              marginTop: gapXStd
+              marginTop: gapStd
             }}
           />
         </LayoutFlexColumn>
