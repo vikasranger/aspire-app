@@ -15,7 +15,6 @@ export default function ColorBox(props: {
   return (
     <Box
       padding={px(Theme.gap.std)}
-      margin={`${px(Theme.gap.std)}`}
       borderRadius={px(Theme.gap.half)}
       boxShadow={`0 0 10px 0 ${getColor("shadow")}`}
     >
@@ -31,10 +30,10 @@ export default function ColorBox(props: {
                 width={"50px"}
                 height={"50px"}
                 bgcolor={color}
-                margin={"5px"}
                 border={color === props.selectedColor ? `3px solid pink` : undefined}
                 sx={{
-                  cursor: "pointer"
+                  cursor: "pointer",
+                  boxSizing: "border-box"
                 }}
                 onClick={() => props.onColorSelect(color)}
               ></Box>
