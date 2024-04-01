@@ -6,4 +6,6 @@ export const asipireIconWidth = 84;
 export const asipireIconHeight = 24;
 
 export const minWidth = "350px";
+
+export const maxMainWidth = "1200px";
 export const minHeight = "210px";

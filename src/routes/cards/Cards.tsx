@@ -5,6 +5,7 @@ import getCardsAPI from "../../api/getCardsAPI.ts";
 import {useAppDispatch} from "../../base/hooks/Hooks.ts";
 import {px} from "../../base/theme/Theme.ts";
 import {Theme} from "../../base/theme/Theme.ts";
+import {maxMainWidth} from "../../base/utils/constants.ts";
 import AspireDrawer from "../../components/composite/aside/AspireDrawer.tsx";
 import LayoutFlexColumn from "../../components/raw/LayoutFlexColumn.tsx";
 import LayoutFlexRow from "../../components/raw/LayoutFlexRow.tsx";
@@ -87,6 +88,7 @@ export default function Cards()
         <LayoutFlexColumn
           width={"100%"}
           padding={px(Theme.gap.x3Std)}
+          maxWidth={maxMainWidth}
           justifyContent={"flex-start"}
         >
           <CardsMainHeader />

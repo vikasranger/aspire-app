@@ -143,6 +143,7 @@ function DebitCardContent()
       <Stack
         spacing={gapXstd}
         padding={gapXstd}
+        justifyContent={"center"}
         direction={isMobile ? "column" : "row"}
       >
         <LayoutFlexColumn width={"45%"} justifyContent={"flex-start"} minWidth={minWidth}>
