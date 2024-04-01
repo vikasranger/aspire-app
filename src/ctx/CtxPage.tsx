@@ -19,7 +19,7 @@ export default function PageCtxProvider(props: {
   const winSize = useWinSize();
   const appMinTabletWidth = 680;
   const appMinDesktopWidth = 1100;
-  const appMinDesktopHeight = 800;
+  const appMinDesktopHeight = 700;
 
   pageCtx.isMobile = () => winSize.width < appMinTabletWidth;
   pageCtx.isDesktop = () => winSize.width >= appMinDesktopWidth;
