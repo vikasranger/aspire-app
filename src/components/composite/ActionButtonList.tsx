@@ -6,16 +6,21 @@ import {IActionButton} from "./ActionButton.tsx";
 
 export default function ActionButtonList(props: {
   actionList: IActionButton[],
-  onClick: (icon: string) => void
+  onClick: (icon: string) => void,
+  direction?: "row" | "column",
+  noPadding?: boolean
 })
 {
   const {
     actionList,
-    onClick
+    onClick,
+    direction,
+    noPadding
   } = props;
   return (
     <Stack
-      paddingTop={px(Theme.gap.x3Std)}
+      direction={direction}
+      paddingTop={noPadding ? 0 : px(Theme.gap.x3Std)}
       spacing={px(Theme.gap.x2Std)}
       justifyContent={"space-between"}
       alignItems={"flex-start"}

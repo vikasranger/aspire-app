@@ -7,7 +7,6 @@ import React from "react";
 import {useState} from "react";
 import {Theme} from "../../base/theme/Theme.ts";
 import {px} from "../../base/theme/Theme.ts";
-import LayoutFlexColumn from "../raw/LayoutFlexColumn.tsx";
 
 export interface ITab
 {
@@ -39,8 +38,10 @@ export default function TabList(props: {
       <Box
         sx={{
           width: "100%",
-          height: "100%",
           display: "flex",
+          overflowY: "auto",
+          flexGrow: 1,
+          boxSizing: "border-box",
           flexDirection: "column"
         }}
       >
@@ -71,9 +72,13 @@ export default function TabList(props: {
             })
           }
         </Tabs>
-        <LayoutFlexColumn
-          fullWidth
-          flexGrow={1}
+        <Box
+          sx={{
+            width: "100%",
+            flexGrow: 1,
+            overflowY: "auto",
+            boxSizing: "border-box"
+          }}
         >
           {tabList.map((tab) =>
           {
@@ -84,6 +89,7 @@ export default function TabList(props: {
                 sx={{
                   width: "100%",
                   height: "100%",
+                  boxSizing: "border-box",
                   padding: px(props.contentPadding ?? 0)
                 }}
               >
@@ -91,7 +97,7 @@ export default function TabList(props: {
               </TabPanel>
             );
           })}
-        </LayoutFlexColumn>
+        </Box>
 
       </Box>
     </TabContext>

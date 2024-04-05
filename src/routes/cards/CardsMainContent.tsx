@@ -5,9 +5,9 @@ import {Stack} from "@mui/material";
 import {useState} from "react";
 import {useAppDispatch} from "../../base/hooks/Hooks.ts";
 import {useAppSelector} from "../../base/hooks/Hooks.ts";
+import {getColor} from "../../base/theme/Theme.ts";
 import {Theme} from "../../base/theme/Theme.ts";
 import {px} from "../../base/theme/Theme.ts";
-import {minWidth} from "../../base/utils/constants.ts";
 import {getListItems} from "../../base/utils/DummyData.ts";
 import CardCarousel from "../../components/composite/CardCarousel.tsx";
 import DebitCard from "../../components/composite/DebitCard.tsx";
@@ -54,7 +54,7 @@ export function CardsMainContent()
 function DebitCardContent()
 {
   const pageContext = usePageContext();
-  const isMobile = pageContext.isMobile();
+  const isSmall = pageContext.isSmallDesktop();
   const selectedCard = useAppSelector((state) =>
   {
     return state.cards.cardList.find((card) => card.cardNumber === state.cards.selectedCard);
@@ -80,7 +80,7 @@ function DebitCardContent()
     {
       id: "limit",
       type: "Limit",
-      label: "Set spend limit"
+      label: "Spend limit"
     },
     {
       id: "gpay",
@@ -139,14 +139,21 @@ function DebitCardContent()
   const gapXStd = px(Theme.gap.xStd);
 
   return (
-    <RawShadowCard fullSize>
+    <RawShadowCard>
       <Stack
         spacing={gapXStd}
         padding={gapXStd}
         justifyContent={"center"}
-        direction={isMobile ? "column" : "row"}
+        height={"100%"}
+        boxSizing={"border-box"}
+        direction={isSmall ? "column" : "row"}
+        boxShadow={`0 0 10px 0 ${getColor("shadow")}`}
       >
-        <LayoutFlexColumn width={"45%"} justifyContent={"flex-start"} minWidth={minWidth} flexShrink={1}>
+        <LayoutFlexColumn
+          width={isSmall ? "100%" : "50%"}
+          justifyContent={"flex-start"}
+          flexShrink={1}
+        >
           <LayoutFlexRow justifyContent={"flex-end"} fullWidth>
             <RawButton
               label={"Show card number"}
@@ -177,14 +184,14 @@ function DebitCardContent()
           <RawGap size={"small"} />
           <IconButtonList
             iconList={iconList}
-            bgcolor={Theme.color.cardBg}
+            bgColor={Theme.color.cardBg}
             onClick={handleClick}
           />
         </LayoutFlexColumn>
         <LayoutFlexColumn
-          width={"55%"}
+          overflowY={"auto"}
+          width={isSmall ? "100%" : "50%"}
           justifyContent={"flex-start"}
-          minWidth={minWidth}
           padding={`${gapXStd} 0 0 0`}
         >
           <HeaderAccordion

@@ -4,8 +4,6 @@ import {getCardColor} from "../../base/theme/Theme.ts";
 import {px} from "../../base/theme/Theme.ts";
 import {Theme} from "../../base/theme/Theme.ts";
 import {TypeColor} from "../../base/types/Types.ts";
-import {minWidth} from "../../base/utils/constants.ts";
-import {minHeight} from "../../base/utils/constants.ts";
 import {asipireIconHeight} from "../../base/utils/constants.ts";
 import {asipireIconWidth} from "../../base/utils/constants.ts";
 import {getDisplayCardNumber} from "../../base/utils/Utils.ts";
@@ -42,14 +40,12 @@ export default function DebitCard(props: {
   const gapStd = Theme.gap.std;
   return (
     <LayoutFlexColumn
-      minHeight={minHeight}
-      minWidth={minWidth}
+      // minHeight={minHeight}
+      // minWidth={minWidth}
       width={"100%"}
-      bgcolor={getCardColor(bgcolor)}
+      bgColor={getCardColor(bgcolor)}
       borderRadius={px(Theme.gap.half)}
-      // width={width}
       padding={cardPadding}
-      // height={height}
       justifyContent={"space-between"}
       opacity={freeze ? 0.5 : 1}
     >

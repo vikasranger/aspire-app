@@ -62,7 +62,6 @@ export default function RawIcon(props: {
           variant={labelVariant ?? "caption"}
           center
         />}
-
     </LayoutFlexColumn>
   );
 }

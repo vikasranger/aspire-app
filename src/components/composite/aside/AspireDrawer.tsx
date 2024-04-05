@@ -5,6 +5,7 @@ import AspireLogo from "../../../assets/AspireLogo.svg";
 import {px} from "../../../base/theme/Theme.ts";
 import {Theme} from "../../../base/theme/Theme.ts";
 import {getColor} from "../../../base/theme/Theme.ts";
+import {usePageContext} from "../../../context/pageContext.tsx";
 import {ROUTE_SETTING} from "../../../routes/Routes.ts";
 import {ROUTE_CREDIT} from "../../../routes/Routes.ts";
 import {ROUTE_PAYMENTS} from "../../../routes/Routes.ts";
@@ -21,6 +22,9 @@ export default function AspireDrawer()
   const aspireSlogan = "Trusted way of banking for 3,000+ SMEs and startups in Singapore";
   const gapX2 = px(Theme.gap.x3Std);
   const gapX = px(Theme.gap.xStd);
+  const pageContext = usePageContext();
+
+  const smallDesktop = pageContext.isSmallDesktop();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -29,36 +33,64 @@ export default function AspireDrawer()
     {
       id: ROUTE_HOME,
       icon: "Home",
-      label: "Home",
+      label: smallDesktop ? "" : "Home",
       isActive: isActive(path, ROUTE_HOME)
     },
     {
       id: ROUTE_CARDS,
       icon: "CardWhite",
-      label: "Cards",
+      label: smallDesktop ? "" : "Cards",
       isActive: isActive(path, ROUTE_CARDS)
     },
     {
       id: ROUTE_PAYMENTS,
       icon: "Payments",
-      label: "Payments",
+      label: smallDesktop ? "" : "Payments",
       isActive: isActive(path, ROUTE_PAYMENTS)
     },
     {
       id: ROUTE_CREDIT,
       icon: "Credit",
-      label: "Credit",
+      label: smallDesktop ? "" : "Credit",
       isActive: isActive(path, ROUTE_CREDIT)
     },
     {
       id: ROUTE_SETTING,
       icon: "Settings",
-      label: "Settings",
+      label: smallDesktop ? "" : "Settings",
       isActive: isActive(path, ROUTE_SETTING)
     }
   ];
 
   const handleClick = (path: string) => navigate(path);
+
+  if(smallDesktop)
+  {
+    return (
+      <Drawer
+        variant="persistent"
+        open={true}
+        anchor="bottom"
+        sx={{
+          flexShrink: 1,
+          height: "45px",
+          "& .MuiDrawer-paper": {
+            height: "45px",
+            boxSizing: "border-box"
+          }
+        }}
+      >
+        <LayoutFlexRow bgColor={getColor("bgDrawer")} height={"100%"}>
+          <ActionButtonList
+            actionList={actionButtonList}
+            onClick={handleClick}
+            direction={"row"}
+            noPadding
+          />
+        </LayoutFlexRow>
+      </Drawer>
+    );
+  }
 
   return (
     <Drawer
@@ -79,7 +111,7 @@ export default function AspireDrawer()
         padding={`0 ${gapX}`}
         justifyContent={"flex-start"}
         alignItems={"flex-start"}
-        bgcolor={getColor("bgDrawer")}
+        bgColor={getColor("bgDrawer")}
       >
         <LayoutFlexRow
           justifyContent={"flex-start"}

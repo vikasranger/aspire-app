@@ -55,10 +55,10 @@ export default function AddCardAside(props: {
     <RawDrawer
       side={"right"}
       open={open}
-      bgcolor="bgDrawer"
+      bgColor="bgDrawer"
       onClose={onClose}
     >
-      <LayoutFlexColumn flexGrow={1} width={"100%"}>
+      <LayoutFlexColumn flexGrow={1} width={"100%"} overflowY={"auto"}>
         <LayoutFlexColumn
           width={"100%"}
           alignItems={"flex-start"}
@@ -82,8 +82,8 @@ export default function AddCardAside(props: {
         </LayoutFlexColumn>
         <LayoutFlexColumn
           width={"100%"}
-          bgcolor={"white"}
-          borderRadius={gapStd}
+          bgColor={"white"}
+          borderRadius={`${gapStd} 0 0 0`}
           padding={px(Theme.gap.xStd)}
           flexGrow={1}
         >

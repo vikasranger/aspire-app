@@ -6,18 +6,20 @@ import {IPropsRawIcon} from "../raw/RawIcon.tsx";
 
 export default function IconButtonList(props: {
   iconList: IPropsRawIcon[],
-  bgcolor?: string,
+  bgColor?: string,
   onClick: (id: string) => void
 })
 {
   const {
     iconList,
-    bgcolor,
+    bgColor,
     onClick
   } = props;
   return (
     <Stack
-      bgcolor={bgcolor}
+      width={"100%"}
+      boxSizing={"border-box"}
+      bgcolor={bgColor}
       direction={"row"}
       justifyContent={"space-between"}
       spacing={px(Theme.gap.half)}

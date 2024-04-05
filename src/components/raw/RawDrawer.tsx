@@ -5,6 +5,7 @@ import {getColor} from "../../base/theme/Theme.ts";
 import {Theme} from "../../base/theme/Theme.ts";
 import {px} from "../../base/theme/Theme.ts";
 import {TypeColor} from "../../base/types/Types.ts";
+import {usePageContext} from "../../context/pageContext.tsx";
 import LayoutFlexColumn from "./LayoutFlexColumn.tsx";
 import LayoutFlexRow from "./LayoutFlexRow.tsx";
 import RawButton from "./RawButton.tsx";
@@ -17,13 +18,18 @@ const useStyles = makeStyles({
   drawerPaper: {
     borderRadius: `${gapStd} 0 0 ${gapStd}`,
     width: "30%"
+  },
+  drawerPaperMobile: {
+    borderRadius: `${gapStd} 0 0 ${gapStd}`,
+    width: "100%"
   }
 });
+
 export default function RawDrawer(props: {
   children: React.ReactNode,
   side: TypeSide,
   open: boolean,
-  bgcolor?: TypeColor,
+  bgColor?: TypeColor,
   onClose: () => void
 })
 {
@@ -31,9 +37,12 @@ export default function RawDrawer(props: {
     children,
     open,
     side,
-    bgcolor,
+    bgColor,
     onClose
   } = props;
+
+  const pageContext = usePageContext();
+  const isSmall = pageContext.isSmallDesktop();
 
   const classes = useStyles();
 
@@ -52,11 +61,11 @@ export default function RawDrawer(props: {
       ModalProps={{
         disableEscapeKeyDown: true
       }}
-      classes={{paper: classes.drawerPaper}}
+      classes={{paper: isSmall ? classes.drawerPaperMobile : classes.drawerPaper}}
     >
       <LayoutFlexColumn
-        bgcolor={bgcolor ? getColor(bgcolor) : undefined}
-        height={"100%"}
+        bgColor={bgColor ? getColor(bgColor) : undefined}
+        flexGrow={1}
         justifyContent={"flex-start"
         }
       >

@@ -85,7 +85,7 @@ export default function Cards()
         <LayoutFlexColumn
           fullSize
           flexShrink={1}
-          padding={px(Theme.gap.x3Std)}
+          padding={px(Theme.gap.std)}
           justifyContent={"flex-start"}
         >
           <CardsMainHeader />

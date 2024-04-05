@@ -19,7 +19,7 @@ export default function PageContextProvider(props: {
   const pageContextValue = {} as IPageContext;
   const winSize = useWinSize();
   const appMinTabletWidth = 680;
-  const appMinDesktopWidth = 1100;
+  const appMinDesktopWidth = 800;
   const appMinDesktopHeight = 700;
 
   pageContextValue.isMobile = () => winSize.width < appMinTabletWidth;
