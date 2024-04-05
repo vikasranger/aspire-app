@@ -3,7 +3,7 @@ import {ErrorBoundary} from "react-error-boundary";
 import {BrowserRouter} from "react-router-dom";
 import ErrorFallback from "./components/composite/ErrorFallback.tsx";
 import FadeLoader from "./components/composite/FadeLoader.tsx";
-import PageCtxProvider from "./ctx/CtxPage.tsx";
+import PageContextProvider from "./context/pageContext.tsx";
 import RouteSwitch from "./routes/RouteSwitch.tsx";
 
 function App()
@@ -12,9 +12,9 @@ function App()
     <BrowserRouter>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <Suspense fallback={<FadeLoader />}>
-          <PageCtxProvider>
+          <PageContextProvider>
             <RouteSwitch />
-          </PageCtxProvider>
+          </PageContextProvider>
         </Suspense>
       </ErrorBoundary>
     </BrowserRouter>

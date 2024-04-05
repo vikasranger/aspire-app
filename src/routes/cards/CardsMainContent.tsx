@@ -22,7 +22,7 @@ import RawButton from "../../components/raw/RawButton.tsx";
 import RawGap from "../../components/raw/RawGap.tsx";
 import {IPropsRawIcon} from "../../components/raw/RawIcon.tsx";
 import {RawShadowCard} from "../../components/raw/RawShadowCard.tsx";
-import {usePageCtx} from "../../ctx/CtxPage.tsx";
+import {usePageContext} from "../../context/pageContext.tsx";
 import {setCardFreeze} from "../../store/slices/SliceCard.ts";
 import {setCardNumberVisible} from "../../store/slices/SliceCard.ts";
 import {selectCard} from "../../store/slices/SliceCard.ts";
@@ -53,8 +53,8 @@ export function CardsMainContent()
 
 function DebitCardContent()
 {
-  const pageCtx = usePageCtx();
-  const isMobile = pageCtx.isMobile();
+  const pageContext = usePageContext();
+  const isMobile = pageContext.isMobile();
   const selectedCard = useAppSelector((state) =>
   {
     return state.cards.cardList.find((card) => card.cardNumber === state.cards.selectedCard);
@@ -116,8 +116,6 @@ function DebitCardContent()
     dispatch(selectCard(card.cardNumber));
   };
 
-  const gapXstd = px(Theme.gap.xStd);
-
   const handleShowCardNumber = () =>
   {
     if(selectedCard)
@@ -132,22 +130,24 @@ function DebitCardContent()
   if(!selectedCard)
   {
     return (
-      <RawShadowCard width={"100%"} height={"100%"}>
+      <RawShadowCard fullSize>
         <p>"Nothing"</p>
       </RawShadowCard>
     );
   }
 
+  const gapXStd = px(Theme.gap.xStd);
+
   return (
-    <RawShadowCard width={"100%"} height={"100%"}>
+    <RawShadowCard fullSize>
       <Stack
-        spacing={gapXstd}
-        padding={gapXstd}
+        spacing={gapXStd}
+        padding={gapXStd}
         justifyContent={"center"}
         direction={isMobile ? "column" : "row"}
       >
         <LayoutFlexColumn width={"45%"} justifyContent={"flex-start"} minWidth={minWidth}>
-          <LayoutFlexRow justifyContent={"flex-end"} width={"100%"}>
+          <LayoutFlexRow justifyContent={"flex-end"} fullWidth>
             <RawButton
               label={"Show card number"}
               color={selectedCard.cardColor}
@@ -181,13 +181,18 @@ function DebitCardContent()
             onClick={handleClick}
           />
         </LayoutFlexColumn>
-        <LayoutFlexColumn width={"55%"} justifyContent={"flex-start"} minWidth={minWidth} padding={`${gapXstd} 0 0 0`}>
+        <LayoutFlexColumn
+          width={"55%"}
+          justifyContent={"flex-start"}
+          minWidth={minWidth}
+          padding={`${gapXStd} 0 0 0`}
+        >
           <HeaderAccordion
             icon={"Group"}
             label={"Card details"}
             bgColor={Theme.color.accordionBg}
           >
-            <LayoutFlexColumn width={"100%"} alignItems={"flex-start"} padding={gapXstd}>
+            <LayoutFlexColumn fullWidth alignItems={"flex-start"} padding={gapXStd}>
               <p>Currency : {selectedCard.currencyUnits}</p>
               <p>Limit : {selectedCard.weeklySpendingLimit}</p>
               <p>LimitExhausted : {selectedCard.weeklySpendingLimitExhausted ? "Yes" : "No"}</p>

@@ -7,24 +7,26 @@ import {TypeColor} from "../../base/types/Types.ts";
 
 export function RawShadowCard(props: {
   children: React.ReactNode,
-  bgcolor?: TypeColor,
+  bgColor?: TypeColor,
   width?: Property.Width,
   height?: Property.Height,
+  fullSize?: boolean
 })
 {
   const {
     children,
-    bgcolor,
+    bgColor,
     width,
-    height
+    height,
+    fullSize
   } = props;
   return (
     <Box
       sx={{
-        width: width,
-        height: height,
+        width: fullSize ? "100%" : width,
+        height: fullSize ? "100%" : height,
         maxHeight: "650px",
-        bgcolor: getColor(bgcolor ?? "white"),
+        bgcolor: getColor(bgColor ?? "white"),
         borderRadius: px(Theme.gap.half),
         boxShadow: `0 0 10px 0 ${getColor("shadow")}`
       }}

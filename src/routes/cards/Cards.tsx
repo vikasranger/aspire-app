@@ -2,15 +2,15 @@ import axios from "axios";
 import {useState} from "react";
 import {useEffect} from "react";
 import getCardsAPI from "../../api/getCardsAPI.ts";
+import {useWinSize} from "../../base/hooks/Hooks.ts";
 import {useAppDispatch} from "../../base/hooks/Hooks.ts";
 import {px} from "../../base/theme/Theme.ts";
 import {Theme} from "../../base/theme/Theme.ts";
-import {maxMainWidth} from "../../base/utils/constants.ts";
 import AspireDrawer from "../../components/composite/aside/AspireDrawer.tsx";
 import LayoutFlexColumn from "../../components/raw/LayoutFlexColumn.tsx";
 import LayoutFlexRow from "../../components/raw/LayoutFlexRow.tsx";
 import RawFadeLoader from "../../components/raw/RawFadeLoader.tsx";
-import {usePageCtx} from "../../ctx/CtxPage.tsx";
+import {usePageContext} from "../../context/pageContext.tsx";
 import {addCardList} from "../../store/slices/SliceCard.ts";
 import {CardsMainContent} from "./CardsMainContent.tsx";
 import CardsMainHeader from "./CardsMainHeader.tsx";
@@ -21,9 +21,11 @@ export default function Cards()
   const [loading, setLoading] = useState<boolean>(false);
   const dispatch = useAppDispatch();
 
-  const pageCtx = usePageCtx();
-  const isMobile = pageCtx.isMobile();
-  const isDesktop = pageCtx.isDesktop();
+  const size = useWinSize();
+
+  const pageContext = usePageContext();
+  const isMobile = pageContext.isMobile();
+  const isDesktop = pageContext.isDesktop();
   console.log("isMobile", isMobile);
   console.log("isDesktop", isDesktop);
   const fetchCards = async() =>
@@ -62,12 +64,7 @@ export default function Cards()
   if(error)
   {
     return (
-      <LayoutFlexRow
-        width={"100%"}
-        height={"100%"}
-        justifyContent={"center"}
-        alignItems={"center"}
-      >
+      <LayoutFlexRow fullSize>
         <h1>{error}</h1>
       </LayoutFlexRow>
     );
@@ -75,21 +72,19 @@ export default function Cards()
 
   return (
     <LayoutFlexRow
-      width={"100%"}
-      height={"100%"}
+      width={px(size.width)}
+      height={px(size.height)}
       alignItems={"flex-start"}
     >
       <AspireDrawer />
       {loading ?
-        <LayoutFlexColumn width={"100%"} height={"100%"}>
+        <LayoutFlexColumn fullSize>
           <RawFadeLoader />
         </LayoutFlexColumn>
         :
         <LayoutFlexColumn
-          width={"100%"}
-          flexGrow={1}
+          fullWidth
           padding={px(Theme.gap.x3Std)}
-          maxWidth={maxMainWidth}
           justifyContent={"flex-start"}
         >
           <CardsMainHeader />

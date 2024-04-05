@@ -40,7 +40,7 @@ export default function ImageLabel(props: {
 
   return (
     <LayoutFlexRow
-      bgcolor={bgcolor}
+      bgColor={bgcolor}
     >
       {icon &&
         <RawImage

@@ -2,7 +2,7 @@ import {Navigate} from "react-router-dom";
 import {Route} from "react-router-dom";
 import {Routes} from "react-router-dom";
 import LayoutFlexRow from "../components/raw/LayoutFlexRow.tsx";
-import {usePageCtx} from "../ctx/CtxPage.tsx";
+import {usePageContext} from "../context/pageContext.tsx";
 import Cards from "./cards/Cards.tsx";
 import Credit from "./credit/Credit.tsx";
 import Home from "./home/Home.tsx";
@@ -18,8 +18,8 @@ import SignIn from "./signIn/SignIn.tsx";
 
 export default function RouteSwitch()
 {
-  const pageCtx = usePageCtx();
-  const smallDesktop = pageCtx.isSmallDesktop();
+  const pageContext = usePageContext();
+  const smallDesktop = pageContext.isSmallDesktop();
 
   if(smallDesktop)
   {

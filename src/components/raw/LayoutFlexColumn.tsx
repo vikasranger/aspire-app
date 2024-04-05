@@ -21,6 +21,9 @@ export default function LayoutFlexColumn(props: {
   overflowX?: Property.OverflowX,
   overflowY?: Property.OverflowY,
   borderRadius?: Property.BorderRadius,
+  fullHeight?: boolean,
+  fullWidth?: boolean,
+  fullSize?: boolean
 })
 {
   const {
@@ -41,7 +44,10 @@ export default function LayoutFlexColumn(props: {
     overflowX,
     overflowY,
     opacity,
-    border
+    border,
+    fullWidth,
+    fullHeight,
+    fullSize
   } = props;
   return (
     <Box
@@ -50,8 +56,8 @@ export default function LayoutFlexColumn(props: {
         flexDirection: "column",
         justifyContent: justifyContent ?? "center",
         alignItems: alignItems ?? "center",
-        height: height,
-        width: width,
+        height: (fullSize || fullHeight) ? "100%" : height,
+        width: (fullSize || fullWidth) ? "100%" : width,
         minHeight: minHeight,
         minWidth: minWidth,
         maxWidth: maxWidth,

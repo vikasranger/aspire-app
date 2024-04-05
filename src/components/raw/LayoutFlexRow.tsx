@@ -11,7 +11,7 @@ export default function LayoutFlexRow(props: {
   minHeight?: Property.Height,
   maxWidth?: Property.MaxWidth,
   maxHeight?: Property.MaxHeight,
-  bgcolor?: Property.BackgroundColor,
+  bgColor?: Property.BackgroundColor,
   padding?: Property.Padding,
   margin?: Property.Margin,
   border?: Property.Border,
@@ -21,8 +21,11 @@ export default function LayoutFlexRow(props: {
   onClick?: () => void,
   overflowX?: Property.OverflowX,
   overflowY?: Property.OverflowY,
-  hoverbgcolor?: Property.BackgroundColor,
-  hoverColor?: Property.Color
+  hoverBgColor?: Property.BackgroundColor,
+  hoverColor?: Property.Color,
+  fullHeight?: boolean,
+  fullWidth?: boolean,
+  fullSize?: boolean
 })
 {
   const {
@@ -34,19 +37,23 @@ export default function LayoutFlexRow(props: {
     minHeight,
     maxHeight,
     maxWidth,
-    bgcolor,
+    bgColor,
     padding,
     margin,
     border,
     borderRadius,
     boxShadow,
-    hoverbgcolor,
+    hoverBgColor,
     overflowX,
     overflowY,
     hoverColor,
     flexGrow,
+    fullWidth,
+    fullHeight,
+    fullSize,
     onClick
   } = props;
+
   return (
     <Box
       sx={{
@@ -54,12 +61,12 @@ export default function LayoutFlexRow(props: {
         flexDirection: "row",
         justifyContent: justifyContent ?? "center",
         alignItems: alignItems ?? "center",
-        height: height,
-        width: width,
+        height: (fullSize || fullHeight) ? "100%" : height,
+        width: (fullSize || fullWidth) ? "100%" : width,
         minHeight: minHeight,
         maxWidth: maxWidth,
         maxHeight: maxHeight,
-        bgcolor: bgcolor,
+        bgcolor: bgColor,
         padding: padding,
         margin: margin,
         overflowX: overflowX ? overflowX : "hidden",
@@ -71,7 +78,7 @@ export default function LayoutFlexRow(props: {
         boxSizing: "border-box",
         cursor: onClick ? "pointer" : undefined,
         "&:hover": {
-          backgroundColor: onClick && hoverbgcolor,
+          backgroundColor: onClick && hoverBgColor,
           color: onClick && hoverColor
         }
       }}

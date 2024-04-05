@@ -71,7 +71,7 @@ export interface ISize
   height: number;
 }
 
-export interface IPageCtx
+export interface IPageContext
 {
   isMobile(): boolean;
 

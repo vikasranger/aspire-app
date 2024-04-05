@@ -19,9 +19,9 @@ export default function CardsMainHeader()
   });
 
   return (
-    <LayoutFlexColumn width={"100%"} alignItems={"flex-start"}>
+    <LayoutFlexColumn fullWidth alignItems={"flex-start"}>
       <RawLabel value={"Available balance"} variant={"subtitle2"} />
-      <LayoutFlexRow width={"100%"} justifyContent={"space-between"}>
+      <LayoutFlexRow fullWidth justifyContent={"space-between"}>
         <LayoutFlexRow>
           <RawChip
             label="$$"
@@ -42,7 +42,6 @@ export default function CardsMainHeader()
           bgcolor={"textTertiary"}
         />
         <AddCardAside open={open} onClose={() => setOpen(false)} />
-
       </LayoutFlexRow>
     </LayoutFlexColumn>
   );

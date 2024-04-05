@@ -42,7 +42,7 @@ export default function HeaderAccordion(props: {
         justifyContent={"space-between"}
         boxShadow={`0 0 ${px(Theme.gap.half)} ${Theme.color.shadow}`}
         padding={px(Theme.gap.std)}
-        bgcolor={bgColor}
+        bgColor={bgColor}
         border={`1px solid ${Theme.color.border}`}
         borderRadius={px(Theme.gap.half)}
       >

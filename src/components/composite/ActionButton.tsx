@@ -32,7 +32,7 @@ export default function ActionButton(props: {
       onClick={onClick}
       padding={`0 ${gapHalf} 0 0`}
       borderRadius={gapHalf}
-      hoverbgcolor={"#0e3d65"}
+      hoverBgColor={"#0e3d65"}
     >
       <RawIcon
         id={icon}
