@@ -7,7 +7,7 @@ import React from "react";
 import {useState} from "react";
 import {Theme} from "../../base/theme/Theme.ts";
 import {px} from "../../base/theme/Theme.ts";
-import LayoutFlexRow from "../raw/LayoutFlexRow.tsx";
+import LayoutFlexColumn from "../raw/LayoutFlexColumn.tsx";
 
 export interface ITab
 {
@@ -39,7 +39,9 @@ export default function TabList(props: {
       <Box
         sx={{
           width: "100%",
-          height: "100%"
+          height: "100%",
+          display: "flex",
+          flexDirection: "column"
         }}
       >
         <Tabs
@@ -69,8 +71,8 @@ export default function TabList(props: {
             })
           }
         </Tabs>
-        <LayoutFlexRow
-          width={"100%"}
+        <LayoutFlexColumn
+          fullWidth
           flexGrow={1}
         >
           {tabList.map((tab) =>
@@ -89,7 +91,7 @@ export default function TabList(props: {
               </TabPanel>
             );
           })}
-        </LayoutFlexRow>
+        </LayoutFlexColumn>
 
       </Box>
     </TabContext>

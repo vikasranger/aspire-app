@@ -40,7 +40,7 @@ export default function RawIcon(props: {
   const path = getIconPath(icon);
 
   return (
-    <LayoutFlexColumn>
+    <LayoutFlexColumn flexShrink={1}>
       <IconButton
         onClick={() => onClick && onClick(id)}
         disableRipple={!onClick}

@@ -15,7 +15,7 @@ export default function BoxPS(props: {
     secondary
   } = props;
   return (
-    <LayoutFlexColumn width={"100%"}>
+    <LayoutFlexColumn flexGrow={1}>
       <LinePrimary primary={primary} />
       <LineSecondary secondary={secondary} />
     </LayoutFlexColumn>

@@ -146,7 +146,7 @@ function DebitCardContent()
         justifyContent={"center"}
         direction={isMobile ? "column" : "row"}
       >
-        <LayoutFlexColumn width={"45%"} justifyContent={"flex-start"} minWidth={minWidth}>
+        <LayoutFlexColumn width={"45%"} justifyContent={"flex-start"} minWidth={minWidth} flexShrink={1}>
           <LayoutFlexRow justifyContent={"flex-end"} fullWidth>
             <RawButton
               label={"Show card number"}
@@ -208,7 +208,6 @@ function DebitCardContent()
             <List
               sx={{
                 padding: px(Theme.gap.half),
-                height: "300px",
                 overflow: "auto"
               }}
             >

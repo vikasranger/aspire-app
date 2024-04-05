@@ -28,6 +28,7 @@ export function RawShadowCard(props: {
         maxHeight: "650px",
         bgcolor: getColor(bgColor ?? "white"),
         borderRadius: px(Theme.gap.half),
+        overflow: "auto",
         boxShadow: `0 0 10px 0 ${getColor("shadow")}`
       }}
     >
