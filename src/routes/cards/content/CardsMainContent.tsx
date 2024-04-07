@@ -1,4 +1,3 @@
-import "../../../style/main.css";
 import TabList from "../../../components/composite/TabList.tsx";
 import {ITab} from "../../../components/composite/TabList.tsx";
 import {RawShadowCard} from "../../../components/raw/RawShadowCard.tsx";
