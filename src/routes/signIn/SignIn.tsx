@@ -5,9 +5,9 @@ import LayoutFlexRow from "../../components/raw/LayoutFlexRow.tsx";
 export default function SignIn()
 {
   return (
-    <LayoutFlexRow width={"100%"} height={"100%"}>
+    <LayoutFlexRow fullSize>
       <AspireDrawer />
-      <LayoutFlexColumn width={"100%"} height={"100%"}>
+      <LayoutFlexColumn fullSize>
         <h1>SignIn Page</h1>
         <p>Welcome to the SignIn page</p>
       </LayoutFlexColumn>

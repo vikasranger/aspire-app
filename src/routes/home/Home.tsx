@@ -9,9 +9,9 @@ export default function Home()
 {
   const navigate = useNavigate();
   return (
-    <LayoutFlexRow width={"100%"} height={"100%"}>
+    <LayoutFlexRow fullSize>
       <AspireDrawer />
-      <LayoutFlexColumn width={"100%"} height={"100%"}>
+      <LayoutFlexColumn fullSize>
         <h1>Check out cards page</h1>
         <RawButton label={"Check Cards"} onClick={() => navigate(ROUTE_CARDS)} />
       </LayoutFlexColumn>

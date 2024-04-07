@@ -4,6 +4,7 @@ import {useEffect} from "react";
 import getCardsAPI from "../../api/getCardsAPI.ts";
 import {useWinSize} from "../../base/hooks/Hooks.ts";
 import {useAppDispatch} from "../../base/hooks/Hooks.ts";
+import {maxScreenWidth} from "../../base/theme/Theme.ts";
 import {px} from "../../base/theme/Theme.ts";
 import {Theme} from "../../base/theme/Theme.ts";
 import AspireDrawer from "../../components/composite/aside/AspireDrawer.tsx";
@@ -12,8 +13,8 @@ import LayoutFlexRow from "../../components/raw/LayoutFlexRow.tsx";
 import RawFadeLoader from "../../components/raw/RawFadeLoader.tsx";
 import {usePageContext} from "../../context/pageContext.tsx";
 import {addCardList} from "../../store/slices/SliceCard.ts";
-import {CardsMainContent} from "./CardsMainContent.tsx";
-import CardsMainHeader from "./CardsMainHeader.tsx";
+import {CardsMainContent} from "./content/CardsMainContent.tsx";
+import CardsMainHeader from "./header/CardsMainHeader.tsx";
 
 export default function Cards()
 {
@@ -85,6 +86,7 @@ export default function Cards()
         <LayoutFlexColumn
           fullSize
           flexShrink={1}
+          maxWidth={px(maxScreenWidth)}
           padding={px(Theme.gap.std)}
           justifyContent={"flex-start"}
         >

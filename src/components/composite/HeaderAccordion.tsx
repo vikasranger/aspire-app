@@ -16,7 +16,7 @@ import RawLabel from "../raw/RawLabel.tsx";
 export default function HeaderAccordion(props: {
   label: string,
   icon?: TypeIcon,
-  children: React.ReactNode,
+  children?: React.ReactNode,
   bgColor?: string,
   isFixed?: boolean,
   defaultOpen?: boolean

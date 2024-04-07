@@ -5,9 +5,9 @@ import LayoutFlexRow from "../../components/raw/LayoutFlexRow.tsx";
 export default function Credit()
 {
   return (
-    <LayoutFlexRow width={"100%"} height={"100%"}>
+    <LayoutFlexRow fullSize>
       <AspireDrawer />
-      <LayoutFlexColumn width={"100%"} height={"100%"}>
+      <LayoutFlexColumn fullSize>
         <h1>Credit</h1>
         <p>Welcome to the Credit page</p>
       </LayoutFlexColumn>

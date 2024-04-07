@@ -3,10 +3,10 @@ import VisaLogo from "../../assets/Visa.svg";
 import {getCardColor} from "../../base/theme/Theme.ts";
 import {px} from "../../base/theme/Theme.ts";
 import {Theme} from "../../base/theme/Theme.ts";
-import {TypeColor} from "../../base/types/Types.ts";
 import {asipireIconHeight} from "../../base/utils/constants.ts";
 import {asipireIconWidth} from "../../base/utils/constants.ts";
 import {getDisplayCardNumber} from "../../base/utils/Utils.ts";
+import {ICard} from "../../store/slices/SliceCard.ts";
 import LayoutFlexColumn from "../raw/LayoutFlexColumn.tsx";
 import LayoutFlexRow from "../raw/LayoutFlexRow.tsx";
 import RawDots from "../raw/RawDots.tsx";
@@ -16,24 +16,18 @@ import RawLabel from "../raw/RawLabel.tsx";
 import RawStars from "../raw/RawStars.tsx";
 
 export default function DebitCard(props: {
-  name: string,
-  cardNumber: string,
-  cardNumberVisible: boolean,
-  cardValidThru: string,
-  cardCVV: number,
-  bgcolor?: TypeColor,
-  freeze?: boolean
+  card: ICard,
 })
 {
   const {
-    name,
+    nameOnCard,
     cardNumber,
     cardNumberVisible,
     cardValidThru,
     cardCVV,
-    bgcolor,
-    freeze
-  } = props;
+    cardColor,
+    cardFreeze
+  } = props.card;
 
   const cardPadding = "28px";
 
@@ -43,11 +37,11 @@ export default function DebitCard(props: {
       // minHeight={minHeight}
       // minWidth={minWidth}
       width={"100%"}
-      bgColor={getCardColor(bgcolor)}
+      bgColor={getCardColor(cardColor)}
       borderRadius={px(Theme.gap.half)}
       padding={cardPadding}
       justifyContent={"space-between"}
-      opacity={freeze ? 0.5 : 1}
+      opacity={cardFreeze ? 0.5 : 1}
     >
       <LayoutFlexRow justifyContent={"flex-end"} width={"100%"}>
         <RawImage
@@ -66,7 +60,7 @@ export default function DebitCard(props: {
           width={"100%"}
         >
           <RawLabel
-            value={name}
+            value={nameOnCard}
             variant={"h5"}
             bold={true}
             color={"white"}

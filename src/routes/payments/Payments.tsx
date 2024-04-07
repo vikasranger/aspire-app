@@ -5,9 +5,9 @@ import LayoutFlexRow from "../../components/raw/LayoutFlexRow.tsx";
 export default function Payments()
 {
   return (
-    <LayoutFlexRow width={"100%"} height={"100%"}>
+    <LayoutFlexRow fullSize>
       <AspireDrawer />
-      <LayoutFlexColumn width={"100%"} height={"100%"}>
+      <LayoutFlexColumn fullSize>
         <h1>Manage Payments</h1>
         <p>Welcome to the manage payment page</p>
       </LayoutFlexColumn>

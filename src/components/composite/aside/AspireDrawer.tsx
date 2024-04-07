@@ -24,7 +24,7 @@ export default function AspireDrawer()
   const gapX = px(Theme.gap.xStd);
   const pageContext = usePageContext();
 
-  const smallDesktop = pageContext.isSmallDesktop();
+  const isMobile = pageContext.isMobile();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -33,38 +33,38 @@ export default function AspireDrawer()
     {
       id: ROUTE_HOME,
       icon: "Home",
-      label: smallDesktop ? "" : "Home",
+      label: isMobile ? "" : "Home",
       isActive: isActive(path, ROUTE_HOME)
     },
     {
       id: ROUTE_CARDS,
       icon: "CardWhite",
-      label: smallDesktop ? "" : "Cards",
+      label: isMobile ? "" : "Cards",
       isActive: isActive(path, ROUTE_CARDS)
     },
     {
       id: ROUTE_PAYMENTS,
       icon: "Payments",
-      label: smallDesktop ? "" : "Payments",
+      label: isMobile ? "" : "Payments",
       isActive: isActive(path, ROUTE_PAYMENTS)
     },
     {
       id: ROUTE_CREDIT,
       icon: "Credit",
-      label: smallDesktop ? "" : "Credit",
+      label: isMobile ? "" : "Credit",
       isActive: isActive(path, ROUTE_CREDIT)
     },
     {
       id: ROUTE_SETTING,
       icon: "Settings",
-      label: smallDesktop ? "" : "Settings",
+      label: isMobile ? "" : "Settings",
       isActive: isActive(path, ROUTE_SETTING)
     }
   ];
 
   const handleClick = (path: string) => navigate(path);
 
-  if(smallDesktop)
+  if(isMobile)
   {
     return (
       <Drawer

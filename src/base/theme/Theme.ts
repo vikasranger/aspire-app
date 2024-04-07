@@ -102,3 +102,5 @@ export function getCardColor(color?: TypeColor): string
   if(!color) return "#01d167";
   return getColor(color);
 }
+
+export const maxScreenWidth = 1200;

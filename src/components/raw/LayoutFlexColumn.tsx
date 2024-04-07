@@ -24,7 +24,9 @@ export default function LayoutFlexColumn(props: {
   borderRadius?: Property.BorderRadius,
   fullHeight?: boolean,
   fullWidth?: boolean,
-  fullSize?: boolean
+  fullSize?: boolean,
+  pt?: Property.PaddingTop,
+  className?: string
 })
 {
   const {
@@ -49,10 +51,13 @@ export default function LayoutFlexColumn(props: {
     border,
     fullWidth,
     fullHeight,
-    fullSize
+    fullSize,
+    className,
+    pt
   } = props;
   return (
     <Box
+      className={className}
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -72,6 +77,7 @@ export default function LayoutFlexColumn(props: {
         flexShrink: flexShrink ?? 0,
         bgcolor: bgColor,
         padding: padding,
+        pt: pt,
         margin: margin,
         border: border,
         borderRadius: borderRadius

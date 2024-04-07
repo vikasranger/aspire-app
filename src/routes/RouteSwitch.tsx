@@ -1,7 +1,6 @@
 import {Navigate} from "react-router-dom";
 import {Route} from "react-router-dom";
 import {Routes} from "react-router-dom";
-import {usePageContext} from "../context/pageContext.tsx";
 import Cards from "./cards/Cards.tsx";
 import Credit from "./credit/Credit.tsx";
 import Home from "./home/Home.tsx";
@@ -17,18 +16,6 @@ import SignIn from "./signIn/SignIn.tsx";
 
 export default function RouteSwitch()
 {
-  const pageContext = usePageContext();
-  const smallDesktop = pageContext.isSmallDesktop();
-
-  // if(smallDesktop)
-  // {
-  //   return (
-  //     <LayoutFlexRow width={"100%"} height={"100%"}>
-  //       <h2> 🧙‍♀️Not implemented for small screen</h2>
-  //     </LayoutFlexRow>
-  //   );
-  // }
-
   return (
     <Routes>
       <Route
