@@ -23,7 +23,7 @@ export default function ColorBox(props: {
       }}
     >
       <RawLabel value={"Pick a card color"} />
-      <LayoutFlexRow width={"100%"}>
+      <LayoutFlexRow width={"100%"} justifyContent={"space-between"} padding={px(Theme.gap.std)}>
         {
           colors.map((color: TypeColor) =>
           {
@@ -33,7 +33,7 @@ export default function ColorBox(props: {
                 borderRadius={"50%"}
                 width={"50px"}
                 height={"50px"}
-                bgcolor={color}
+                bgcolor={getColor(color)}
                 border={color === props.selectedColor ? `3px solid pink` : undefined}
                 sx={{
                   cursor: "pointer",

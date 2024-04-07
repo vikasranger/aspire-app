@@ -1,3 +1,4 @@
+import React from "react";
 import LayoutFlexColumn from "./LayoutFlexColumn.tsx";
 
 export default function RawStackSmall(props: {
