@@ -99,6 +99,25 @@ export function getSize(size: TypeIconSize)
   }
 }
 
+export function getGep(size: TypeIconSize)
+{
+  switch(size)
+  {
+    case "smallest":
+      return "12px";
+    case "small":
+      return "16px";
+    case "medium":
+      return "24px";
+    case "large":
+      return "32px";
+    case "xLarge":
+      return "48px";
+    case "x2Large":
+      return "56px";
+  }
+}
+
 export function getIconPath(type: TypeIcon)
 {
   return imagePathMap[type] ?? imagePathMap["Aspire"];

@@ -6,6 +6,7 @@ import {Theme} from "../../base/theme/Theme.ts";
 import {asipireIconHeight} from "../../base/utils/constants.ts";
 import {asipireIconWidth} from "../../base/utils/constants.ts";
 import {getDisplayCardNumber} from "../../base/utils/Utils.ts";
+import {usePageContext} from "../../context/pageContext.tsx";
 import {ICard} from "../../store/slices/SliceCard.ts";
 import LayoutFlexColumn from "../raw/LayoutFlexColumn.tsx";
 import LayoutFlexRow from "../raw/LayoutFlexRow.tsx";
@@ -28,18 +29,19 @@ export default function DebitCard(props: {
     cardColor,
     cardFreeze
   } = props.card;
+  const pageContext = usePageContext();
+  const isMobile = pageContext.isSmallDesktop();
 
-  const cardPadding = "28px";
+  const paddingLarge = "28px";
+  const paddingSmall = "20px";
 
   const gapStd = Theme.gap.std;
   return (
     <LayoutFlexColumn
-      // minHeight={minHeight}
-      // minWidth={minWidth}
       width={"100%"}
       bgColor={getCardColor(cardColor)}
       borderRadius={px(Theme.gap.half)}
-      padding={cardPadding}
+      padding={isMobile ? paddingSmall : paddingLarge}
       justifyContent={"space-between"}
       opacity={cardFreeze ? 0.5 : 1}
     >
@@ -51,8 +53,7 @@ export default function DebitCard(props: {
           height={asipireIconHeight}
         />
       </LayoutFlexRow>
-      <RawGap size={"small"} />
-
+      <RawGap size={isMobile ? "small" : "medium"} />
       <LayoutFlexColumn width={"100%"}>
         <LayoutFlexRow
           justifyContent={"flex-start"}
@@ -112,7 +113,7 @@ export default function DebitCard(props: {
 
         </LayoutFlexRow>
       </LayoutFlexColumn>
-      <RawGap size={"small"} />
+      <RawGap size={isMobile ? "small" : "medium"} />
 
       <LayoutFlexRow justifyContent={"flex-end"} width={"100%"}>
         <img src={VisaLogo} alt={"visa-logo"} />
