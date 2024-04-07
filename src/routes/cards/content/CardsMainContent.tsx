@@ -38,11 +38,9 @@ function DebitCardContent()
 
   return (
     <RawShadowCard>
-      <RawStack
-        direction={isSmall ? "column" : "row"}
-      >
-        <CardsMainContentLeft isSmall={isSmall} />
-        <CardsMainColumnRight isSmall={isSmall} />
+      <RawStack direction={isSmall ? "column" : "row"} isSmall>
+        <CardsMainContentLeft />
+        <CardsMainColumnRight />
       </RawStack>
     </RawShadowCard>
   );
